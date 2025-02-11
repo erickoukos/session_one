@@ -1,0 +1,104 @@
+# Get started: Creating an R  script
+# Click File -> New File -> R Script
+# The script editor opens with an empty script this is my first R script do some things
+x = 34
+y = 16
+z = x + y # addition
+w = y/x     # division
+# display the results
+x
+y
+z
+w
+# change x
+x = "some text"
+# display the results
+x
+y
+z
+w #why is w still giving us a value?
+# Basic Commands
+x <- c(1, 6, 8, 10, 7, 5, 3, 14, 19, 6, 5, 1, 5, 3, NA)
+max(x, na.rm = TRUE) #maximum removing missing data
+min(x, na.rm = TRUE) # minimum removing missing data
+mean(x, na.rm = TRUE) #mean removing missing data
+median(x, na.rm = T) #median removing missing data
+sum(x, na.rm = T) #sum removing missing data
+var(x, na.rm = T) #variance removing missing data
+sd(x, na.rm = T) #standard deviation removing missing data
+length(x) #number of items
+summary(x) # produce result summaries of data models ..
+table(x) #tabulation or crosstabulation
+x[5] # List or subsetting- here the 5th item of dataset x
+mtcars
+# Useful Functions
+str(mtcars)
+?mtcars
+class(mtcars) # class or type of an object
+names(mtcars) # names
+vector1 <- c(1, 2, 3) # vector for use in examples below
+vector2 <- c(4, 5, 6) # vector for use in examples below
+c(vector1, vector2) # combine objects into a vector
+cbind(vector1, vector2) # combine objects as columns
+rbind(vector1, vector2) # combine objects as rows
+ls()    # list current objects in workspace
+vector1
+rm(vector1) # delete an object from workspace
+vector1
+newobject <- edit(mtcars) # edit copy and save a newobject
+newobject <- edit(mtcars) # edit copy and save a newobject
+newobject
+fix(mtcars) # edit in place- replace original
+mtcars
+mtcars
+fix(mtcars) # edit in place- replace original
+mtcars
+fix(mtcars) # edit in place- replace original
+mtcars
+#Points to note
+# An example
+x <- c(1:10) #Make vector of numbers from 1 to 10
+x
+x[(x > 8) | (x < 5)] # x greater than 8 and less than 5
+x
+x > 8
+x < 5
+x > 8 | x < 5
+x[c(T,T,T,T,F,F,F,F,T,T)]
+x[c(T, T, T, T, F, F, F, F, T, T)]
+# Points to note
+# To list the objects that you have in your current R session use the function ls or the function objects.
+ls()
+#To list all objects starting with the letter x:
+x2 = 9
+y2 = 10
+ls(pattern = "x")
+# Use the function rm to remove one or more objects from your session.
+rm(x, x2)
+x
+x2
+z2 <- c(1, 2, 3, 4, 5, 6)
+z3 <- c(6, 8, 3, 5, 7, 1)
+plot(z2, z3)
+title("My first scatterplot")
+# R as a calculator
+x = sin(9)/75
+y = log(x) + x^2
+x
+y
+m <- matrix(c(1, 2, 4, 1), ncol = 2)
+m
+m <- matrix(c(1, 2, 4, 1), ncol = 2, byrow = T)
+m
+# Working directory
+getwd() # print the current working directory
+myData <- read.csv('/home/erick/Documents/Projects/james_analysis/CleanData.csv')
+myData <- read.csv('CleanData.csv')
+myData <- read.csv('CleanData.csv')
+head(myData)
+head(myData)
+# work with your previous commands
+history() # display last 25 commands
+history(max.show=Inf) # display all previous commands
+# save your command history
+savehistory(file="sessiononeCommands") # default is ".Rhistory"
