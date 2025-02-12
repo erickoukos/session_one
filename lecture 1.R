@@ -167,12 +167,13 @@ vignette("ggplot2") # show specific vignette
 search()
 
 library(MASS)
+require(ggplot2)
 
 #Now the "shoes" data becomes available from Mass package
 # This is a list of two vectors, giving the wear of shoes of 
 # materials A and B for one foot each of ten boys.
 shoes$A
-str(shoes )     
+str(shoes)     
 shoes$B
 ###########################################################################
 # The function library can also be used to list all the available
@@ -181,17 +182,17 @@ shoes$B
 library()
 
 # Install one package
-install.packages("graphics")
+install.packages("graphics", dependencies = T)
 
 # Several packages: just replace the package names
 install.packages("graphics"); install.packages("moments");
 install.packages("graphics")
 
-#R Datasets
+# R Datasets
 # R comes with a number of sample datasets that you can experiment with. 
 # Type data( )  to see the available datasets. 
-#The results will depend on which packages you have  loaded. 
-data( )    
+# The results will depend on which packages you have  loaded. 
+data()    
 
 # Example: for details on a sample dataset Co2
 # Dataset on Carbon Dioxide uptake in grass plants
@@ -203,15 +204,13 @@ help(CO2)
 mean = 10
 mean
 
-# The object mean already exists in the base package, but is
-#  now masked by your object mean. To get a list of all   masked objects 
-# use the function conflicts.
+# The object mean already exists in the base package, but is now masked by your object mean. To get a list of all   masked objects use the function conflicts.
+
 conflicts()
 
-# You can safely remove the object mean with the function
-# rm() without risking deletion of the mean function.
-#handle conflicts how?
-#for instance rm some conflicts in libraries
+# You can safely remove the object mean with the function rm() without risking deletion of the mean function. handle conflicts how?
+
+# for instance rm() some conflicts in libraries
 rm(mean)
 # The function mean is now unmasked 
 mean
@@ -221,7 +220,7 @@ mean
 
 x = c(3, 7, 1, 2)
 
-x>2 # TRUE if x is greater than 2
+x > 2 # TRUE if x is greater than 2
 
 x == 2 #TRUE if x is equal to 2
 
@@ -230,20 +229,21 @@ x == 2 #TRUE if x is equal to 2
 which(x > 2)  # To get the location in a vector where values of x are > 2
 
 # Data types: character/string
-y = c("a", "bc", "def")
+y = c("a", "erbc", "def")
 
 length(y)
 
 nchar(y)
 
 
-y == "a"  #which of the strings is "a"
+y == "a"  # which of the strings is "a"
 
-y == "b" #which of the strings is "b"
+y == "b" # which of the strings is "b"
 
 # Data types: factor
 # Example - a family of two girls (1) and four boys (0),
-kids = factor(c(1,0,1,0,0,0), levels = c(0, 1),
+kids = factor(c(1, 0, 1, 0, 0, 0), 
+              levels = c(0, 1),
               labels = c("boy", "girl"))
 kids
 table(kids)
@@ -253,19 +253,21 @@ mode(kids)
 
 # variable gender with 20 "male" entries and 
 # 30 "female" entries
+
 gender <- factor(c(rep("Male", 20), rep("Female", 30)))
 summary(gender)
 
-###OR
+# OR
 
-# gender <- c(rep("male",20), rep("female", 30))  then
-# gender <- factor(gender)
+gender <- c(rep("male", 20), rep("female", 30)) # then
+gender <- factor(gender)
 
+# Exercise 1
 # stores gender as 20 1s and 30 2s and associates
-# 1=female, 2=male internally (alphabetically)
+# 1 = female, 2 = male internally (alphabetically)
 # R now treats gender as a nominal variable
 
-#summary(gender)           
+# summary(gender)           
 
 
 # Matrix - a vector with two-dimensional shape information.
