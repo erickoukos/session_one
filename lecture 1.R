@@ -2,8 +2,6 @@
 # Data Analysis Using R
 # Program R: Beginner
 
-
-
 # Session 1: Introduction to R
 
 # Get started: Creating an R  script
@@ -38,11 +36,11 @@ w #why is w still giving us a value?
 x <- c(1, 6, 8, 10, 7, 5, 3, 14, 19, 6, 5, 1, 5, 3, NA)
 max(x, na.rm = TRUE) # maximum removing missing data
 min(x, na.rm = TRUE) # minimum removing missing data
-mean(x, na.rm = TRUE) #mean removing missing data
-median(x, na.rm = T) #median removing missing data
-sum(x, na.rm = T) #sum removing missing data
-var(x, na.rm = T) #variance removing missing data
-sd(x, na.rm = T) #standard deviation removing missing data
+mean(x, na.rm = TRUE) # mean removing missing data
+median(x, na.rm = T) # median removing missing data
+sum(x, na.rm = T) # sum removing missing data
+var(x, na.rm = T) # variance removing missing data
+sd(x, na.rm = T) # standard deviation removing missing data
 length(x) # number of items
 summary(x) # produce result summaries of data models ..
 table(x) # tabulation or crosstabulation
@@ -65,9 +63,9 @@ rm(vector1) # delete an object from workspace
 newobject <- edit(mtcars) # edit copy and save a newobject
 fix(mtcars) # edit in place- replace original
 
-#Points to note
+# Points to note
 # An example
-x <- c(1:10) #Make vector of numbers from 1 to 10
+x <- c(1:10) # Make vector of numbers from 1 to 10
 
 x[(x > 8) | (x < 5)] # x greater than 8 and less than 5
 # yields 1 2 3 4 9 10
@@ -90,7 +88,7 @@ x[c(T, T, T, T, F, F, F, F, T, T)]
 # To list the objects that you have in your current R session use the function ls or the function objects.
 ls()
 
-#To list all objects starting with the letter x:
+# To list all objects starting with the letter x:
 x2 = 9
 y2 = 10
 ls(pattern = "x")
@@ -99,8 +97,7 @@ ls(pattern = "x")
 rm(x, x2)
 
 
-# Lets create two small vectors with data and a scatterplot.
-# concatenate function or c(), groups things together
+# Lets create two small vectors with data and a scatterplot, concatenate function or c(), groups things together
 
 z2 <- c(1, 2, 3, 4, 5, 6)
 z3 <- c(6, 8, 3, 5, 7, 1)
@@ -127,10 +124,10 @@ setwd("/home/erick/Documents/Projects/session_one")
 # 
 # Workspace
 # session you can also explicitly save the workspace image.
-## save to the current working directory
+# save to the current working directory
 
 save.image(insertfile_name_and_path_here)
-## just checking what the current working directory is
+# just checking what the current working directory is
 getwd()
 ## save to a specific file and location
 save.image("/home/erickoukos/Downloads/Project R/Essential Level/Session One/Practicals/sessionone.R")
@@ -263,15 +260,15 @@ gender <- c(rep("male", 20), rep("female", 30)) # then
 gender <- factor(gender)
 
 # Exercise 1
-# stores gender as 20 1s and 30 2s and associates
-# 1 = female, 2 = male internally (alphabetically)
-# R now treats gender as a nominal variable
+# Create an object that stores gender as 20 1s and 30 2s and associates 1 = Female, 2 = Male internally (alphabetically)
 
 # summary(gender)           
 
 
 # Matrix - a vector with two-dimensional shape information.
-xx = matrix(1:6, nrow=3, ncol =2)
+xx <- matrix(1:6, 
+            nrow = 3,
+            ncol = 2)
 xx
 
 class(xx)
@@ -283,21 +280,22 @@ is.matrix(xx) # check if xx is a matrix (true)
 length(xx)
 
 dim(xx)
+dim(iris)
 
-#Identify rows, columns or elements using subscripts. mtcars dataset
-# available in R. The data was extracted from the 1974 Motor Trend 
-# US magazine, and comprises fuel consumption and 10 aspects of automobile 
-# design and performance for 32 automobiles (1973-74 models).
+# Identify rows, columns or elements using subscripts. mtcars dataset available in R. The data was extracted from the 1974 Motor Trend 
+
+# US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973-74 models).
+
 ?mtcars
 head(mtcars)
 mtcars[,4] # 4th column of matrix
 mtcars[3,] # 3rd row of matrix
-mtcars[2:4,1:3] # rows 2,3,4 of columns 1,2,3
+mtcars[2:4, 1:3] # rows 2,3,4 of columns 1,2,3
 
 # Data types: vectors
-a <- c(1,2,5.3,6,-2,4) # numeric vector
-b <- c("one","two","three") # character vector
-c <- c(TRUE,TRUE,TRUE,FALSE,TRUE,FALSE) #logical vector
+a <- c(1, 2, 5.3, 6,-2 , 4) # numeric vector
+b <- c("one", "two", "three") # character vector
+c <- c(TRUE, TRUE, TRUE, FALSE, TRUE, FALSE) #logical vector
 
 # Refer to elements of a vector using subscripts.
 a[c(2,4)] # 2nd and 4th elements of vector
@@ -307,15 +305,15 @@ a[c(2,4)] # 2nd and 4th elements of vector
 # Data types: Data frames
 #The elements of a data frame can be numeric vectors, factor vectors, and
 # logical vectors, but they must all be of the same length.
-d <- c(1,2,3,4)
+d <- c(1, 2, 3, 4)
 e <- c("red", "white", "red", NA)
 efr <- complete.cases(e)
 efr
 e[efr]
 
-f <- c(TRUE,TRUE,TRUE,FALSE)
+f <- c(TRUE, TRUE, TRUE, FALSE)
 
-mydata <- data.frame(d,e,f)
+mydata <- data.frame(d, e, f) # A dataframe
 
 names(mydata) <- c("ID","Color","Passed") #variable names
 
@@ -327,10 +325,11 @@ mydata$Color # variable Passed in the dataframe
 
 
 # Data types: Lists
-# A list allows you to gather a variety of (possibly unrelated) 
-# objects under one name.
+# A list allows you to gather a variety of (possibly unrelated) objects under one name.
 
-myList = list(a = 1:10, b = "def", c(TRUE, FALSE, TRUE))
+myList <- list(a = 1:10, 
+              b = "def", 
+              c(TRUE, FALSE, TRUE))
 myList$a
 
 myList$b
